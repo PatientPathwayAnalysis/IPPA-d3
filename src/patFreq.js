@@ -44,7 +44,7 @@ function toPatFreq(blocks) {
           return sf;
       })
       .reduce((c, a) => c.concat(a), []);
-    return sfsBlocks
+    return sfsBlocks;
 }
 
 module.exports = {

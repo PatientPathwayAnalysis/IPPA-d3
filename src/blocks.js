@@ -15,7 +15,7 @@ function toBlocks(pathways, stage_maps) {
         const sel = StageSim[evt.Stage];
         evt.Stage = sel.StageShow;
         evt.Colour = sel.ColourShow;
-        evt.Before = sel.Before;
+        evt.PreTre = sel.PreTre;
         return evt;
       });
 
@@ -32,7 +32,7 @@ function toBlocks(pathways, stage_maps) {
     })
     .map((pp, j) => {
       const t0 = pp[0].Time, n_stage = pp.length;
-      const preTre = pp.filter(evt => evt.Before), n_preTre = preTre.length;
+      const preTre = pp.filter(evt => evt.PreTre), n_preTre = preTre.length;
 
       let bks = [];
       let evt0=pp[0], evt1, evt;
@@ -44,7 +44,7 @@ function toBlocks(pathways, stage_maps) {
           Stage: evt0.Stage,
           Next: evt1.Stage,
           Colour: evt0.Colour,
-          PreTre: evt0.Before,
+          PreTre: evt0.PreTre,
           T0: evt0.Time,
           T1: evt1.Time,
           t0: evt0.Time - t0,
@@ -58,7 +58,7 @@ function toBlocks(pathways, stage_maps) {
         Index: j,
         Stage: evt0.Stage,
         Colour: evt0.Colour,
-        PreTre: evt0.Before,
+        PreTre: evt0.PreTre,
         T0: evt0.Time,
         t0: evt0.Time - t0,
         dt: 1
