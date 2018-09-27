@@ -1,0 +1,37 @@
+{
+  "name": "ippa-vis-d3",
+  "version": "1.0.0",
+  "description": "visualisation toolkits for individual patient pathway analysis",
+  "main": "build/ippa-vis.js",
+  "unpkg": "build/ippa-vis.min.js",
+  "scripts": {
+    "pretest": "(if exist build rd /q /s build) && mkdir build && rollup -c",
+    "test": "tape test/**/*-test.js && eslint index.js src",
+    "build": "uglifyjs -b beautify=false build/ippa-vis.js -c -m -o build/ippa-vis.min.js",
+    "prepublishOnly": "npm run pretest && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatientPathwayAnalysis/IPPA-d3.git"
+  },
+  "keywords": [
+    "Patient Pathway Analysis",
+    "visualisation",
+    "Care seeking"
+  ],
+  "author": "Chu-Chang Ku",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PatientPathwayAnalysis/IPPA-d3/issues"
+  },
+  "homepage": "https://github.com/PatientPathwayAnalysis/IPPA-d3#readme",
+  "dependencies": {
+    "d3": "^5.7.0",
+    "npm": "^6.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.6.0",
+    "rollup": "^0.66.2",
+    "uglify-js-es6": "^2.8.9"
+  }
+}
