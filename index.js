@@ -1,5 +1,7 @@
 var d3 = require('d3');
-var toSeqFreq = require('./src/patFreq.js').toSeqFreq;
+var toBlocks = require('./src/blocks.js').toBlocks;
+var toPatFreq = require('./src/patFreq.js').toPatFreq;
+var toStageDist = require('./src/stageDist.js').toStageDist;
 
 StageMaps = [
 
@@ -29,43 +31,12 @@ StageMaps = [
     {Stage: 'LOSS', StageShow:'Lost to follow-up', Colour:' #0F3115', ColourShow: '#0F3115'},
 ];
 
-const StageSim = {}
-
-StageMaps.forEach(function(d) {
-  StageSim[d.Stage] = d;
-})
-
-
-function reduceStages(pathway) {
-  pathway = pathway.map(function(evt) {
-    evt = Object.assign({}, evt);
-    const sel = StageSim[evt.Stage];
-    evt.Stage = sel.StageShow;
-    evt.Colour = sel.ColourShow;
-    evt.Before = sel.Before;
-    return evt;
-  });
-
-  let evt0 = pathway[0], evt1, reduced = [evt0];
-
-  for(let i = 1; i < pathway.length; i++) {
-    evt1 = pathway[i];
-    if (evt1.Stage != evt0.Stage) {
-      evt0 = evt1;
-      reduced.push(evt0);
-    }
-  }
-  return reduced;
-}
-
-
-function toStageDistribution(pathways) {
-
-}
-
 
 d3.json("https://patientpathwayanalysis.github.io/IPPA-data/output/Pathways.json", function(error, pathways) {
-  pathways = pathways.map(pp => reduceStages(pp.Pathway));
-  console.log(pathways);
-  console.log(toSeqFreq(pathways));
+  blocks = toBlocks(pathways, StageMaps);
+  console.log(blocks);
+  patFreq = toPatFreq(blocks);
+  console.log(patFreq);
+  //stDist = toStageDist(blocks);
+  //console.log(stDist);
 })
