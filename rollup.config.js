@@ -5,8 +5,9 @@ export default {
     input: 'index.js',
     external: dependencies,
     output: {
+        name: 'vis',
         file: 'build/ippa-vis.js',
-        format: 'cjs'
+        format: 'iife'
     },
     plugins: [ ]
-};
+}

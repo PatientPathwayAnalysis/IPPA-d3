@@ -1,5 +1,3 @@
-var d3 = require('d3');
-
 export function toStageDist(blocks, stage_maps, end, dt) {
   end = end || 365;
   dt = dt || 5;

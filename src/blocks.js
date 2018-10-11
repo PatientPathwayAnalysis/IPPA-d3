@@ -1,5 +1,3 @@
-var d3 = require('d3');
-
 export function toBlocks(pathways, stage_maps) {
   const StageSim = {}
 

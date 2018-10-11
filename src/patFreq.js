@@ -1,5 +1,3 @@
-var d3 = require('d3');
-
 export function toPatFreq(blocks) {
 
   let PatternGroups = d3.nest()
