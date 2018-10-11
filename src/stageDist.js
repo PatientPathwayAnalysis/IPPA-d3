@@ -43,7 +43,7 @@ export function toStageDist(blocks, stage_maps, end, dt) {
           Colour: st.Colour
         };
         y0 += res.dy;
-        console.log(res);
+
         return res;
       });
   })
