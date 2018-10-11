@@ -1,6 +1,6 @@
 {
   "name": "ippa-vis-d3",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "visualisation toolkits for individual patient pathway analysis",
   "main": "build/ippa-vis.js",
   "unpkg": "build/ippa-vis.min.js",

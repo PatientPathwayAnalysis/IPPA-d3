@@ -1,6 +1,6 @@
 var d3 = require('d3');
 
-function toBlocks(pathways, stage_maps) {
+export function toBlocks(pathways, stage_maps) {
   const StageSim = {}
 
   stage_maps.forEach(function(d) {
@@ -70,8 +70,4 @@ function toBlocks(pathways, stage_maps) {
         Blocks: bks
       }
     });
-}
-
-module.exports = {
-  toBlocks: toBlocks
 }

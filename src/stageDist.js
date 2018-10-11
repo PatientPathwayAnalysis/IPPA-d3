@@ -1,10 +1,10 @@
 var d3 = require('d3');
 
-function toStageDist(blocks, stage_maps, end, dt) {
+export function toStageDist(blocks, stage_maps, end, dt) {
   end = end || 365;
   dt = dt || 5;
 
-  stage_counter = {};
+  const stage_counter = {};
   stage_maps.forEach(function(d) {
     stage_counter[d.StageShow] = 0;
   })
@@ -48,8 +48,4 @@ function toStageDist(blocks, stage_maps, end, dt) {
       });
   })
   .reduce((c, a) => c.concat(a), []);
-}
-
-module.exports = {
-  toStageDist: toStageDist
 }

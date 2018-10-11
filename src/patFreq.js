@@ -1,6 +1,6 @@
 var d3 = require('d3');
 
-function toPatFreq(blocks) {
+export function toPatFreq(blocks) {
 
   let PatternGroups = d3.nest()
       .key(sf => sf.PreTrePattern)
@@ -8,7 +8,7 @@ function toPatFreq(blocks) {
       .sort((a, b) => a.values.length - b.values.length);
 
 
-  y0 = 0;
+  let y0 = 0;
   let sfsBlocks = PatternGroups
       .map(kv => {
           kv.values.forEach(sf => {
@@ -45,8 +45,4 @@ function toPatFreq(blocks) {
       })
       .reduce((c, a) => c.concat(a), []);
     return sfsBlocks;
-}
-
-module.exports = {
-  toPatFreq: toPatFreq
 }
