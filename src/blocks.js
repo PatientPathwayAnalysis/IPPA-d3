@@ -2,7 +2,7 @@ export function toBlocks(pathways, stage_maps) {
     const StageSim = {};
 
     stage_maps.forEach(function (d) {
-        StageSim[d.Stage] = d;
+        StageSim[d.StageCode] = d;
     });
 
     return pathways
@@ -30,6 +30,7 @@ export function toBlocks(pathways, stage_maps) {
                 evt.PreTre = false;
                 evt.PostTre = true;
             }
+            evt.Stage = sel.Stage;
             return evt;
         });
 
