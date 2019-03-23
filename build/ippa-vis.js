@@ -5,7 +5,7 @@ var vis = (function (exports) {
         const StageSim = {};
 
         stage_maps.forEach(function (d) {
-            StageSim[d.Stage] = d;
+            StageSim[d.StageCode] = d;
         });
 
         return pathways
@@ -33,6 +33,7 @@ var vis = (function (exports) {
                     evt.PreTre = false;
                     evt.PostTre = true;
                 }
+                evt.Stage = sel.Stage;
                 return evt;
             });
 
