@@ -236,10 +236,10 @@ var vis = (function (exports) {
         .reduce((c, a) => c.concat(a), []);
     }
 
-    exports.toBlocks = toBlocks;
-    exports.toPatFreq = toPatFreq;
     exports.filterPostPat = filterPostPat;
     exports.filterPrePat = filterPrePat;
+    exports.toBlocks = toBlocks;
+    exports.toPatFreq = toPatFreq;
     exports.toStageDist = toStageDist;
 
     return exports;
