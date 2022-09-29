@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/PatientPathwayAnalysis/IPPA-d3#readme",
   "dependencies": {
-    "d3": "4.2.2",
+    "d3": "7.6.1",
     "fs": "0.0.1-security",
     "npm": "^6.13.4"
   },
